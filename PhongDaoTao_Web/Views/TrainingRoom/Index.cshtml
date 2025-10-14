@@ -1,0 +1,150 @@
+﻿@model IEnumerable<PhongDaoTao_Web.Models.TrainingRoom>
+@{
+    ViewData["Title"] = "Phòng học";
+}
+
+<section class="container my-4">
+
+    <!-- ✅ Thông báo -->
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success text-center">
+            @TempData["Message"]
+        </div>
+    }
+
+    <!-- 🔹 Tiêu đề trang -->
+    <div class="text-center mb-4">
+        <h2 class="fw-bold text-primary">
+            <i class="bi bi-door-open me-2"></i>Danh sách phòng học
+        </h2>
+        <p class="text-muted">Thông tin chi tiết các phòng học hiện có tại trung tâm</p>
+    </div>
+
+    <!-- 🔍 Bộ lọc nhanh -->
+    <div class="text-center mb-4">
+        <button class="btn btn-outline-success btn-sm me-2 filter-btn" data-status="available">
+            <i class="bi bi-check2"></i> Còn trống
+        </button>
+        <button class="btn btn-outline-danger btn-sm me-2 filter-btn" data-status="active">
+            <i class="bi bi-door-open"></i> Đang sử dụng
+        </button>
+        <button class="btn btn-outline-secondary btn-sm filter-btn active" data-status="all">
+            <i class="bi bi-list"></i> Tất cả
+        </button>
+    </div>
+
+    <!-- 🔹 Danh sách phòng -->
+    <div class="row g-4">
+        @foreach (var room in Model)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-12 room-card" data-active="@room.IsActive.ToString().ToLower()">
+                <div class="card border-0 shadow-sm h-100 fade-in">
+                    <!-- Ảnh phòng học -->
+                    <img src="~/images/phonghoc.png"
+                         class="card-img-top"
+                         alt="@room.Name"
+                         style="height: 220px; object-fit: cover; border-radius: 6px 6px 0 0;" />
+
+                    <!-- Nội dung -->
+                    <div class="card-body">
+                        <h5 class="card-title fw-semibold">@room.Name</h5>
+                        <p class="mb-1"><i class="bi bi-people me-2 text-primary"></i>Sức chứa: @room.Capacity</p>
+                        <p class="mb-1"><i class="bi bi-laptop me-2 text-primary"></i>@room.Equipment</p>
+
+                        @if (!string.IsNullOrEmpty(room.Notes))
+                        {
+                            <p class="small text-muted"><i class="bi bi-info-circle me-2"></i>@room.Notes</p>
+                        }
+
+                        <!-- 🔹 Trạng thái -->
+                        <div class="mt-3">
+                            @if (room.IsActive)
+                            {
+                                <span class="badge bg-danger px-3 py-2">
+                                    <i class="bi bi-door-closed"></i> Đang sử dụng
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-success px-3 py-2">
+                                    <i class="bi bi-check-circle"></i> Còn trống
+                                </span>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- 🔹 Footer card -->
+                    <div class="card-footer bg-light text-center">
+                        <div class="d-flex justify-content-center gap-2">
+
+                            <!-- Xem chi tiết -->
+                            <a asp-action="Details" asp-route-id="@room.IdTrainingRoom" class="btn btn-outline-info btn-sm">
+                                <i class="bi bi-eye"></i> Xem
+                            </a>
+
+                            @if (!room.IsActive)
+                            {
+                                <!-- Mở phòng -->
+                                <form asp-action="OpenRoom" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@room.IdTrainingRoom" />
+                                    <button type="submit" class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-door-open"></i> Mở phòng
+                                    </button>
+                                </form>
+                            }
+                            else
+                            {
+                                <!-- Đóng phòng -->
+                                <form asp-action="CloseRoom" method="post" style="display:inline;">
+                                    <input type="hidden" name="id" value="@room.IdTrainingRoom" />
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-door-closed"></i> Đóng phòng
+                                    </button>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <!-- Nếu chưa có phòng nào -->
+    @if (!Model.Any())
+    {
+        <div class="text-center text-muted my-5">
+            <i class="bi bi-exclamation-circle fs-1 d-block mb-3"></i>
+            <p>Hiện chưa có phòng học nào được thêm.</p>
+            <a href="@Url.Action("Create")" class="btn btn-primary">
+                <i class="bi bi-plus-circle me-1"></i> Thêm phòng học mới
+            </a>
+        </div>
+    }
+</section>
+
+<script>
+    // 🎯 Lọc phòng học theo trạng thái
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const status = this.getAttribute('data-status');
+            const cards = document.querySelectorAll('.room-card');
+
+            cards.forEach(card => {
+                const isActive = card.getAttribute('data-active') === 'true';
+
+                if (status === 'all') {
+                    card.style.display = 'block';
+                } else if (status === 'available') {
+                    card.style.display = isActive ? 'none' : 'block';
+                } else if (status === 'active') {
+                    card.style.display = isActive ? 'block' : 'none';
+                }
+            });
+
+            // Hiệu ứng nhấn nút
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+</script>

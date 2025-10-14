@@ -1,0 +1,20 @@
+﻿@model PhongDaoTao_Web.Models.TrainingRoom
+@{
+    ViewData["Title"] = "Chi tiết phòng";
+}
+<div class="container py-4">
+    <a class="btn btn-link" href="@Url.Action("Index")">&larr; Quay lại</a>
+    <div class="row mt-3">
+        <div class="col-md-5">
+            <img src="@(Model.ImageUrl ?? "/images/placeholder-room.jpg")" class="img-fluid rounded" alt="@Model.Name" />
+        </div>
+        <div class="col-md-7">
+            <h3>@Model.Name</h3>
+            <p><strong>Sức chứa:</strong> @Model.Capacity</p>
+            <p><strong>Thiết bị:</strong> @(Model.Equipment ?? "-")</p>
+            <p><strong>Mô tả:</strong> @Model.Description</p>
+            <p><strong>Ghi chú:</strong> @Model.Notes</p>
+            <a class="btn btn-primary" href="@Url.Action("Edit", new { id = Model.IdTrainingRoom })">Sửa</a>
+        </div>
+    </div>
+</div>

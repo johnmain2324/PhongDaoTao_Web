@@ -1,0 +1,71 @@
+﻿.teacher-box {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+    .teacher-box:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+.border-pink {
+    border-color: #e83e8c !important;
+}
+
+/* 🎨 CSS tinh chỉnh */
+.card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+.badge {
+    font-size: 0.9rem;
+}
+
+h2 {
+    letter-spacing: 0.5px;
+}
+
+/* 🔸 Hiệu ứng mượt khi lọc */
+.fade-in {
+    animation: fadeIn 0.4s ease;
+}
+
+@@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.badge.bg-success {
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(0,255,0,0.5);
+    }
+
+    to {
+        box-shadow: 0 0 15px rgba(0,255,0,0.9);
+    }
+}
+
+

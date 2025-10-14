@@ -1,0 +1,249 @@
+﻿body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-nav .nav-link {
+    color: #fff !important;
+    padding: 8px 18px !important;
+    transition: 0.2s;
+}
+
+    .navbar-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+    }
+
+.card {
+    border-radius: 6px;
+}
+
+.card-header {
+    font-size: 0.95rem;
+}
+
+footer {
+    font-size: 0.9rem;
+}
+
+/* Giảm khoảng cách lề để các cột sát cạnh hơn */
+.container-fluid.px-5 {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.row.gx-4 {
+    --bs-gutter-x: 1.25rem;
+}
+.card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+}
+
+.banner h1, .banner p {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.text-shadow {
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.card img {
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+/* =======================================
+   🌇 BANNER CÓ ẢNH NỀN CHẠY NGANG
+   ======================================= */
+
+/* Khung tổng thể của banner */
+.banner-slider {
+    position: relative;
+    height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* 🖼️ Thanh chứa các ảnh chạy ngang */
+.background-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%; /* Gấp 4 lần chiều rộng để chứa 4 ảnh */
+    height: 100%;
+    display: flex;
+    animation: slideBackground 30s linear infinite; /* Thời gian chạy */
+}
+
+    /* Mỗi ảnh chiếm 100% chiều rộng banner */
+    .background-slide img {
+        width: 25%; /* Vì có 4 ảnh, 4x25% = 100% khung hiển thị */
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(70%); /* Làm mờ nhẹ để chữ nổi bật hơn */
+    }
+
+/* 🧠 Nội dung nằm giữa banner */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+/* 🔄 Animation: cho ảnh chạy ngang liên tục */
+@keyframes slideBackground {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-75%); /* Di chuyển qua trái đủ để ảnh cuối cùng xuất hiện */
+    }
+}
+
+
+/* ============================
+   📌 HEADER GHIM (STICKY)
+   ============================ */
+#mainHeader {
+    z-index: 1050; /* Đảm bảo header luôn nằm trên các phần khác */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+    /* Khi cuộn xuống, header tối màu và có bóng mờ hơn */
+    #mainHeader.scrolled {
+        background-color: #003c8f !important;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+    }
+#mainHeader {
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    transition: background-color 0.4s ease, opacity 0.4s ease;
+    opacity: 1; /* Mặc định rõ nét */
+}
+
+    #mainHeader.faded {
+        opacity: 0.85; /* Mờ nhẹ khi cuộn */
+        backdrop-filter: blur(5px); /* Làm nền trong suốt có chiều sâu */
+    }
+
+/* 🎯 Giảm chiều cao tổng thể của header */
+header.bg-primary {
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+}
+
+/* 🔹 Phần logo + text trong dòng đầu của header */
+header .container-fluid.px-5.d-flex {
+    min-height: 60px; /* Giảm từ khoảng 100px xuống 60px */
+}
+
+/* 🔹 Logo nhỏ gọn hơn một chút */
+header img {
+    height: 45px !important; /* Giảm từ 60px → 45px */
+    width: auto;
+}
+
+/* 🔹 Chữ trong phần tên trung tâm vẫn rõ ràng */
+header h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+    line-height: 1.2;
+}
+
+header h6 {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    line-height: 1.1;
+}
+
+/* 🔹 Thanh menu phía dưới: giảm chiều cao & sát lên trên */
+nav.navbar {
+    padding-top: 0.2rem !important;
+    padding-bottom: 0.2rem !important;
+    margin-top: 0.3rem !important;
+}
+
+/* 🔹 Giữ hiệu ứng mờ khi cuộn */
+#mainHeader.faded {
+    background-color: rgba(0, 86, 179, 0.9) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* 🔹 Giảm khoảng đệm nội dung chính (vì header thấp hơn) */
+main {
+    padding-top: 10px !important; /* Tùy vào chiều cao header, thường 90–110px là đẹp */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+footer {
+    scroll-margin-top: 80px; /* Điều chỉnh cho phù hợp với chiều cao header */
+}
+
+.navbar .dropdown-menu a.dropdown-item:hover {
+    background-color: #f0f8ff;
+    color: #0d6efd;
+    transition: 0.2s;
+}
+
+/* Hiệu ứng và định dạng ô tròn giảng viên */
+.teacher-box {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    background-color: white;
+}
+
+    .teacher-box:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+    }
+
+/* Màu viền đặc biệt cho từng loại */
+.border-pink {
+    border-color: #e83e8c !important;
+}
+
+/* 🎨 Tinh chỉnh modal thời khóa biểu */
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table-bordered td {
+    transition: background-color 0.3s;
+}
+
+    .table-bordered td:hover {
+        background-color: #f0f8ff;
+        cursor: pointer;
+    }
+
+.modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
