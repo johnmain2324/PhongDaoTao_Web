@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Trang giảng viên";
+    ViewData["Title"] = "Trang học viên";
 }
 <link rel="stylesheet" href="~/css/trainingroom.css" />
 <section class="container text-center my-2 py-1">
@@ -14,7 +14,7 @@
             <div class="teacher-box border border-danger rounded-circle p-4 mx-auto">
                 <i class="bi bi-calendar-event fs-1 text-danger"></i>
             </div>
-            <p class="fw-semibold mt-3 text-danger">Xem thời khóa biểu, nhập điểm</p>
+            <p class="fw-semibold mt-3 text-danger">Xem thời khóa biểu</p>
         </div>
         <div class="col-md-3 col-sm-6">
             <div class="teacher-box border border-warning rounded-circle p-4 mx-auto">
@@ -64,3 +64,58 @@
         </div>
     </div>
 </section>
+
+<!-- 🗓️ Modal: Thời khóa biểu -->
+<div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content shadow-lg border-0">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title fw-bold" id="scheduleModalLabel">
+                    <i class="bi bi-calendar3 me-2"></i>Thời khóa biểu học viên
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body bg-light">
+                <div class="table-responsive">
+                    <table class="table table-bordered align-middle text-center bg-white shadow-sm">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Thứ Hai</th>
+                                <th>Thứ Ba</th>
+                                <th>Thứ Tư</th>
+                                <th>Thứ Năm</th>
+                                <th>Thứ Sáu</th>
+                                <th>Thứ Bảy</th>
+                                <th>Chủ Nhật</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (int i = 1; i <= 4; i++)
+                            {
+                                <tr>
+                                    <td class="py-3">--</td>
+                                    <td class="py-3">--</td>
+                                    <td class="py-3">--</td>
+                                    <td class="py-3">--</td>
+                                    <td class="py-3">--</td>
+                                    <td class="py-3">--</td>
+                                    <td class="py-3">--</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Đóng
+                </button>
+                <button type="button" class="btn btn-success">
+                    <i class="bi bi-pencil-square me-1"></i> Dời lịch/Xin nghỉ
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

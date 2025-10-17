@@ -31,83 +31,135 @@
     </div>
 </div>
 
-<!-- Giới thiệu ====================================================================================================================================================== -->
-<section class="text-center mb-5 why-us mt-5">
-    <h2 class="fw-bold text-primary mb-4">
-        <i class="bi bi-stars me-2"></i>Vì sao chọn chúng tôi?
-    </h2>
-    <div class="row g-4">
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 p-4">
-                <div class="text-primary fs-1 mb-3"><i class="bi bi-journal-bookmark-fill"></i></div>
-                <h5 class="fw-semibold">Khóa học đa dạng</h5>
-                <p>Khóa học phù hợp cho mọi cấp độ — từ mất gốc đến luyện thi IELTS, TOEIC, giao tiếp.</p>
-                <img src="/images/course.jpg" class="rounded mt-3 img-fluid" alt="Khóa học" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 p-4">
-                <div class="text-primary fs-1 mb-3"><i class="bi bi-person-badge-fill"></i></div>
-                <h5 class="fw-semibold">Giảng viên tận tâm</h5>
-                <p>Đội ngũ giảng viên đạt chứng chỉ quốc tế, luôn đồng hành cùng học viên trong quá trình học tập.</p>
-                <img src="/images/teacher.jpg" class="rounded mt-3 img-fluid" alt="Giảng viên" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card border-0 shadow-sm h-100 p-4">
-                <div class="text-primary fs-1 mb-3"><i class="bi bi-building-check"></i></div>
-                <h5 class="fw-semibold">Cơ sở vật chất hiện đại</h5>
-                <p>Phòng học rộng rãi, thiết bị trình chiếu và âm thanh đạt tiêu chuẩn quốc tế.</p>
-                <img src="/images/facility.jpg" class="rounded mt-3 img-fluid" alt="Phòng học" />
-            </div>
-        </div>
+@{
+    ViewData["Title"] = "Phòng Đào Tạo";
+}
+
+<!-- 🟦 PHẦN GIỚI THIỆU CHUNG -->
+<section class="text-center py-5 bg-light border-bottom">
+    <div class="container">
+        <h1 class="fw-bold text-primary mb-3">
+            <i class="bi bi-mortarboard-fill me-2"></i>Phòng Đào Tạo Trung Tâm Anh Ngữ
+        </h1>
+        <p class="lead text-muted">
+            Trung tâm Anh ngữ hướng đến chất lượng giảng dạy và quản lý đào tạo chuyên nghiệp — giúp học viên đạt được mục tiêu học tập nhanh nhất, hiệu quả nhất.
+        </p>
+        <a href="#chuongtrinh" class="btn btn-primary mt-3">
+            <i class="bi bi-journal-text"></i> Xem các chương trình học
+        </a>
     </div>
 </section>
 
-<!-- Tin tức -->
-<!-- =========================
-     📰 PHẦN TIN TỨC
-     ========================= -->
-<section id="tin-tuc" class="container my-5">
-    <h2 class="text-center mb-4 fw-bold text-primary">
-        <i class="bi bi-newspaper me-2"></i>Tin tức - Sự kiện
-    </h2>
+<!-- 🎓 PHẦN CHƯƠNG TRÌNH ĐÀO TẠO -->
+<section id="chuongtrinh" class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Các chương trình đào tạo</h2>
+        <p class="text-muted">Đa dạng chương trình học phù hợp cho từng đối tượng học viên</p>
+    </div>
 
     <div class="row g-4">
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="/images/news1.jpg" class="card-img-top" alt="Tin 1">
+            <div class="card border-0 shadow-sm h-100">
+                <img src="~/images/ielts.jpg" class="card-img-top" alt="IELTS" style="height:200px; object-fit:cover;">
                 <div class="card-body">
-                    <h5 class="card-title">Khai giảng khóa học mới</h5>
-                    <p class="card-text">Trung tâm Anh ngữ khai giảng lớp giao tiếp cơ bản tháng 10...</p>
+                    <h5 class="card-title fw-semibold">Khóa luyện thi IELTS</h5>
+                    <p class="text-muted">Tập trung vào kỹ năng học thuật, cấu trúc đề thi và chiến lược đạt điểm cao.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="/images/news2.jpg" class="card-img-top" alt="Tin 2">
+            <div class="card border-0 shadow-sm h-100">
+                <img src="~/images/toeic.jpg" class="card-img-top" alt="TOEIC" style="height:200px; object-fit:cover;">
                 <div class="card-body">
-                    <h5 class="card-title">Ưu đãi học phí tháng này</h5>
-                    <p class="card-text">Giảm 30% cho học viên đăng ký mới trước ngày 30/10...</p>
+                    <h5 class="card-title fw-semibold">Khóa học TOEIC</h5>
+                    <p class="text-muted">Giúp học viên đạt được chứng chỉ TOEIC phục vụ cho công việc và học tập.</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card h-100 shadow-sm">
-                <img src="/images/news3.jpg" class="card-img-top" alt="Tin 3">
+            <div class="card border-0 shadow-sm h-100">
+                <img src="~/images/communication.jpg" class="card-img-top" alt="Giao tiếp" style="height:200px; object-fit:cover;">
                 <div class="card-body">
-                    <h5 class="card-title">Học viên đạt 8.0 IELTS</h5>
-                    <p class="card-text">Chúc mừng bạn Minh Anh đã xuất sắc đạt điểm cao trong kỳ thi IELTS!</p>
+                    <h5 class="card-title fw-semibold">Khóa tiếng Anh giao tiếp</h5>
+                    <p class="text-muted">Phát triển kỹ năng nghe – nói tự nhiên, phản xạ nhanh trong môi trường quốc tế.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- 🧑‍🏫 PHẦN ĐỘI NGŨ GIẢNG VIÊN -->
+<section class="bg-light py-5 border-top border-bottom">
+    <div class="container text-center">
+        <h2 class="fw-bold text-primary mb-5">Đội ngũ giảng viên</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <img src="~/images/teacher1.jpg" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;">
+                <h5 class="fw-semibold mb-1">Nguyễn Văn A</h5>
+                <p class="text-muted small">Giảng viên IELTS 8.5</p>
+            </div>
+            <div class="col-md-4">
+                <img src="~/images/teacher2.jpg" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;">
+                <h5 class="fw-semibold mb-1">Trần Thị B</h5>
+                <p class="text-muted small">Giảng viên TOEIC 990</p>
+            </div>
+            <div class="col-md-4">
+                <img src="~/images/teacher3.jpg" class="rounded-circle mb-3" style="width:120px; height:120px; object-fit:cover;">
+                <h5 class="fw-semibold mb-1">Nguyễn Hoàng C</h5>
+                <p class="text-muted small">Giảng viên giao tiếp quốc tế</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-<!-- CTA ======================================================================================================================================================-->
-<section class="text-center py-5 bg-primary text-white rounded shadow-sm mb-4">
-    <h3 class="fw-bold mb-3"><i class="bi bi-megaphone-fill me-2"></i>Đăng ký học ngay hôm nay!</h3>
-    <p class="mb-4">Tham gia lớp học thử miễn phí để trải nghiệm chất lượng giảng dạy tại trung tâm.</p>
-    <a href="/Room" class="btn btn-light btn-lg"><i class="bi bi-pencil-square me-2"></i>Đăng ký ngay</a>
+<!-- 📰 PHẦN TIN TỨC ĐÀO TẠO -->
+<section class="container py-5" id="tintuc">
+    <div class="text-center mb-5">
+        <h2 class="fw-bold text-primary">Tin tức và thông báo</h2>
+        <p class="text-muted">Cập nhật mới nhất về hoạt động đào tạo và các sự kiện nổi bật</p>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img src="~/images/news1.jpg" class="card-img-top" alt="News" style="height:200px; object-fit:cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">Khai giảng khóa học tháng 11</h5>
+                    <p class="text-muted small">Nhiều khóa học mới được mở với ưu đãi hấp dẫn, phù hợp với mọi lứa tuổi.</p>
+                    <a href="#" class="text-primary fw-semibold small">Xem chi tiết →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img src="~/images/news2.jpg" class="card-img-top" alt="News" style="height:200px; object-fit:cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">Hội thảo chia sẻ kỹ năng học tiếng Anh</h5>
+                    <p class="text-muted small">Buổi hội thảo với các chuyên gia giúp học viên cải thiện phát âm và phản xạ.</p>
+                    <a href="#" class="text-primary fw-semibold small">Xem chi tiết →</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100">
+                <img src="~/images/news3.jpg" class="card-img-top" alt="News" style="height:200px; object-fit:cover;">
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold">Lịch kiểm tra cuối khóa</h5>
+                    <p class="text-muted small">Phòng đào tạo thông báo lịch kiểm tra tổng kết các lớp IELTS, TOEIC, giao tiếp.</p>
+                    <a href="#" class="text-primary fw-semibold small">Xem chi tiết →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🏢 PHẦN LIÊN HỆ -->
+<section class="bg-primary text-white py-5 text-center">
+    <div class="container">
+        <h3 class="fw-bold mb-3">Liên hệ Phòng Đào Tạo</h3>
+        <p class="mb-3">Hotline: 0123 456 789 | Email: daotao@enlightcenter.vn</p>
+        <a href="/Home/Contact" class="btn btn-light">
+            <i class="bi bi-envelope"></i> Gửi liên hệ
+        </a>
+    </div>
 </section>
