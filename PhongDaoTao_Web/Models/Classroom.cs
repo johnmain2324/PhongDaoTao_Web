@@ -23,7 +23,7 @@ namespace PhongDaoTao_Web.Models
         // 🔹 Liên kết giáo viên (Teacher)
         [ForeignKey("Teacher")]
         [Display(Name = "Teacher ID")]
-        public string? TeacherID { get; set; }   // ⚠ IdentityUser sử dụng string ID
+        public string? TeacherID { get; set; } 
         public ApplicationUser? Teacher { get; set; }
 
         // 🔹 Danh sách lịch học
